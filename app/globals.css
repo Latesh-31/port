@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #__next {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Hide body scrollbar, GSAP will manage scroll */
+}
+
+body {
+  color: white;
+  background: #101010;
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  z-index: 1;
+}
+
+.scroll-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400vh; /* This element will be scrolled, driving the animations */
+  z-index: 2; /* Sits on top of canvas, but below HUD */
+  opacity: 0; /* Make it invisible */
+}
+
+.hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  pointer-events: none; /* Allow clicks to pass through to the canvas */
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hud * {
+  pointer-events: all; /* Re-enable pointer events for HUD elements */
+}
